@@ -1,10 +1,10 @@
 import axios from 'axios';
 import { Experience, ExperienceFormData } from '../types/Experience';
 
-const API_URL = process.env.REACT_APP_API_URL || 'https://crud-cv-1.onrender.com/api/experiencias';
+const API_BASE_URL = process.env.REACT_APP_API_URL || 'https://crud-cv-1.onrender.com';
 
 const api = axios.create({
-  baseURL: API_URL,
+  baseURL: `${API_BASE_URL}/api/experiencias`,
   headers: {
     'Content-Type': 'application/json',
   },
