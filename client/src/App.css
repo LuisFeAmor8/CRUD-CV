@@ -1,0 +1,501 @@
+:root {
+    --primary-color: #3EB0F9;
+    --secondary-color: #FF5500;
+    --dark-bg: #1A1A1A;
+    --light-text: #F7F7F7;
+    --accent-orange: #FFA61E;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--dark-bg);
+    color: var(--light-text);
+    position: relative;
+    margin: 0;
+    padding: 0;
+    background-color: hsl(0, 0%, 7%);
+    background-image: 
+      linear-gradient(#333 1px, transparent 1px),
+      linear-gradient(90deg, #333 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: moverFondo 3.5s linear infinite;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+
+@keyframes moverFondo {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: 50px 50px;
+    }
+}
+
+/* Fondo cuadriculado */
+body::before {
+    position: absolute;
+    left: 12px;
+    top: 12px;
+    z-index: 2;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 1s ease, box-shadow 1s ease;
+    border-radius: 1rem;
+}
+
+.App {
+    min-height: 100vh;
+}
+
+.main-content {
+    padding: 0;
+}
+
+/* Navegación */
+.custom-navbar {
+    border-bottom: 1px solid rgba(247, 247, 247, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    background-color: var(--dark-bg) !important;
+    padding: 1rem 1.5rem;
+}
+
+.navbar-brand {
+    font-weight: 800 !important;
+    color: var(--light-text) !important;
+    font-size: 1.5rem;
+}
+
+.nav-link {
+    color: var(--light-text) !important;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--primary-color) !important;
+}
+
+/* Profile Container */
+.profile-container {
+    max-width: 760px;
+    padding: 2rem;
+    margin: 2rem auto;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.profile-image {
+    border: 1px solid var(--light-text);
+    box-shadow: 3px 3px 0px 0px var(--light-text);
+    transition: all 0.3s ease;
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+}
+
+.profile-image:hover {
+    box-shadow: 6px 6px 0px 0px var(--light-text);
+    transform: translate(-3px, -3px);
+}
+
+.profile-info h1 {
+    font-weight: 800;
+    margin-bottom: 0;
+    margin-top: 50px;
+    color: var(--light-text);
+}
+
+.profile-username {
+    color: var(--primary-color);
+    margin-top: 0 !important;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+    padding-top: 0.5rem;
+}
+
+.social-icons a {
+    color: var(--light-text);
+    text-decoration: none;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: var(--primary-color);
+}
+
+/* Section Titles */
+.section-title {
+    font-weight: 800;
+    padding-top: 1.5rem;
+    width: 100%;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--light-text);
+}
+
+/* Custom Cards */
+.custom-card {
+    width: 100%;
+    height: 100%;
+    font-weight: 500;
+    text-align: start;
+    color: var(--dark-bg);
+    border: 1px solid var(--light-text);
+    box-shadow: 3px 3px 0px 0px var(--light-text);
+    transition: transform 0.05s ease;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+}
+
+.custom-card:hover {
+    box-shadow: none;
+    transform: translate(3px, 3px);
+}
+
+.card-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin: 0.8rem;
+    font-size: 1.5rem;
+}
+
+.card-content {
+    padding: 0.5rem 0.5rem 0.5rem 0;
+    flex: 1;
+}
+
+.card-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.25rem;
+    font-weight: 600;
+    color: var(--dark-bg);
+}
+
+.card-subtitle {
+    font-size: 0.85rem;
+    color: var(--dark-bg);
+    line-height: 1.5;
+}
+
+.card-education .card-icon,
+.card-education1 .card-icon {
+    color: var(--dark-bg);
+}
+
+.card-skills .card-icon {
+    color: var(--dark-bg);
+}
+
+.card-projects .card-icon {
+    color: var(--dark-bg);
+}
+
+.card-contact .card-icon {
+    color: var(--dark-bg);
+}
+
+.card-experience {
+    background-color: var(--secondary-color);
+}
+
+.card-education1 {
+    background-color: var(--secondary-color);
+}
+
+.card-education {
+    background-color: var(--accent-orange);
+}
+
+.card-skills {
+    background-color: var(--primary-color);
+}
+
+.card-projects {
+    background-color: var(--primary-color);
+}
+
+.card-contact {
+    background-color: var(--primary-color);
+}
+
+/* Admin Panel */
+.admin-container {
+    max-width: 760px;
+    padding: 2rem;
+    margin: 2rem auto;
+
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.admin-header {
+    border-bottom: 1px solid rgba(247, 247, 247, 0.2);
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+}
+
+.admin-header h2 {
+    color: var(--light-text);
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+}
+
+.admin-header .fa-cogs {
+    margin-right: 1rem;
+    color: var(--primary-color);
+}
+
+/* Forms */
+.form-container {
+    background-color: var(--primary-color);
+    border: 1px solid var(--light-text);
+    box-shadow: 3px 3px 0px 0px var(--light-text);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    transition: transform 0.05s ease;
+}
+
+.form-container:hover {
+    box-shadow: none;
+    transform: translate(3px, 3px);
+}
+
+.form-label {
+    font-weight: 600;
+    color: var(--dark-bg);
+    padding: 4px 8px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}
+
+.form-control {
+    border: 1px solid var(--dark-bg);
+    border-radius: 4px;
+    padding: 0.5rem;
+    background-color: white;
+    color: var(--dark-bg);
+}
+
+.form-control:focus {
+    border-color: var(--dark-bg);
+    box-shadow: 0 0 0 0.2rem rgba(26, 26, 26, 0.25);
+    outline: none;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: var(--dark-bg);
+    border: 1px solid var(--light-text);
+    box-shadow: 3px 3px 0px 0px var(--light-text);
+    color: var(--light-text);
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.05s ease;
+    border-radius: 4px;
+}
+
+.btn-primary:hover {
+    background-color: var(--dark-bg);
+    border-color: var(--light-text);
+    box-shadow: none;
+    transform: translate(3px, 3px);
+    color: var(--light-text);
+}
+
+.btn-success {
+    background-color: var(--accent-orange);
+    border: 1px solid var(--light-text);
+    box-shadow: 3px 3px 0px 0px var(--light-text);
+    color: var(--dark-bg);
+    font-weight: 600;
+    border-radius: 4px;
+    transition: transform 0.05s ease;
+}
+
+.btn-success:hover {
+    background-color: var(--accent-orange);
+    border-color: var(--light-text);
+    box-shadow: none;
+    transform: translate(3px, 3px);
+    color: var(--dark-bg);
+}
+
+.btn-outline-dark {
+    background-color: transparent;
+    border: 1px solid var(--light-text);
+    box-shadow: 3px 3px 0px 0px var(--light-text);
+    color: var(--light-text);
+    font-weight: 600;
+    transition: transform 0.05s ease;
+    border-radius: 4px;
+    text-decoration: none;
+    display: inline-block;
+    padding: 0.375rem 0.75rem;
+    margin: 0.25rem;
+}
+
+.btn-outline-dark:hover {
+    background-color: var(--light-text);
+    color: var(--dark-bg) !important;
+    box-shadow: none;
+    transform: translate(3px, 3px);
+    text-decoration: none;
+}
+
+/* Fix para botones dentro de cards de proyectos - mismo estilo que btn-primary */
+.card-projects .btn-outline-dark {
+    background-color: var(--dark-bg) !important;
+    border: 1px solid var(--light-text) !important;
+    box-shadow: 3px 3px 0px 0px var(--light-text);
+    color: var(--light-text) !important;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.05s ease;
+    border-radius: 4px;
+}
+
+.card-projects .btn-outline-dark:hover {
+    background-color: var(--dark-bg) !important;
+    border-color: var(--light-text) !important;
+    box-shadow: none;
+    transform: translate(3px, 3px);
+    color: var(--light-text) !important;
+}
+
+/* Asegurar que los enlaces tengan el mismo estilo que btn-primary */
+.card-projects a.btn-outline-dark {
+    color: var(--light-text) !important;
+    text-decoration: none !important;
+}
+
+.card-projects a.btn-outline-dark:hover {
+    color: var(--light-text) !important;
+    text-decoration: none !important;
+}
+
+/* Loading Spinner */
+.loading-spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+    color: var(--primary-color);
+}
+
+.spinner-border {
+    color: var(--primary-color);
+}
+
+/* Alert */
+.alert {
+    border: 1px solid var(--light-text);
+    box-shadow: 3px 3px 0px 0px var(--light-text);
+    border-radius: 4px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.alert-info {
+    background-color: var(--primary-color);
+    color: var(--dark-bg);
+}
+
+.alert-warning {
+    background-color: var(--accent-orange);
+    color: var(--dark-bg);
+}
+
+/* Contact cards layout fix */
+.contact-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.contact-col {
+    flex: 1;
+    min-width: 250px;
+    display: flex;
+}
+
+.contact-col .custom-card {
+    width: 100%;
+    min-height: 120px;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.contact-col .card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .profile-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .social-icons {
+        justify-content: center;
+    }
+    
+    .custom-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .card-icon {
+        margin-bottom: 1rem;
+    }
+
+    .contact-row {
+        flex-direction: column;
+    }
+    
+    .contact-col {
+        min-width: 100%;
+    }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+
+    
+
