@@ -14,10 +14,7 @@ app.use(cors()); // Permitir peticiones desde otros dominios
 app.use(express.json()); // Para poder leer JSON en las peticiones
 app.use(express.urlencoded({ extended: true })); // Para formularios
 
-// Servir archivos estáticos de React en producción
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '../client/build')));
-}
+// Solo backend - sin archivos estáticos de React
 
 // Middleware para logging de peticiones
 app.use((req, res, next) => {
@@ -43,22 +40,15 @@ app.get('/api', (req, res) => {
 // Usar las rutas de experiencias
 app.use('/api/experiencias', experienciasRoutes);
 
-// En producción, servir la app React para todas las rutas que no sean API
-if (process.env.NODE_ENV === 'production') {
-  app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../client/build/index.html'));
-  });
-}
+// Ruta catch-all para API only
 
-// Middleware para rutas no encontradas (solo en desarrollo)
-if (process.env.NODE_ENV !== 'production') {
-  app.use('*', (req, res) => {
-    res.status(404).json({
-      error: 'Ruta no encontrada',
-      message: 'La ruta que buscas no existe en esta API'
-    });
+// Middleware para rutas no encontradas
+app.use('*', (req, res) => {
+  res.status(404).json({
+    error: 'Ruta no encontrada',
+    message: 'La ruta que buscas no existe en esta API'
   });
-}
+});
 
 // Middleware para manejo de errores globales
 app.use((error, req, res, next) => {
